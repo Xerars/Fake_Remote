@@ -27,7 +27,7 @@ All Libraries of Fake Series are Simulated by GPIO. Similar Libraries with Prefi
 2. Need to Implement GPIO On/Off Function (I Use Macro Function Method)
 
 ```c
-#define FK_XXX_ON()                        P00 = 1
+#define FK_XXX_ON()                     P00 = 1
 #define FK_XXX_OFF()                    P00 = 0
 ```
 
@@ -71,9 +71,9 @@ FK_XXX_SEND(0x59,0x16);
 #include "Fake_NEC.h"
 
 //Test Parameter:
-//Chip                     : STC8A8K64D4
+//Chip                  : STC8A8K64D4
 //Input IRC Frequency   : 40Mhz
-//Instruction Time         : (1/40M) * 12 = 300ns
+//Instruction Time      : (1/40M) * 12 = 300ns
 
 //[Prototype Declare]
 void GPIO_Init(void);
@@ -85,7 +85,7 @@ void TMR0_ISR(void);
 void TMR1_ISR(void);
 
 //[Macro Function Declare]
-#define FK_NEC_ON()                        P00 = 1
+#define FK_NEC_ON()                     P00 = 1
 #define FK_NEC_OFF()                    P00 = 0
 
 //[Variable Declare]
@@ -125,14 +125,14 @@ void TMR1_ISR(void) interrupt 3 using 1
 ///@Descript: TMR0 Initial
 void TMR0_Init(void)
 {
-    TMOD |= 0x00;        //Timer0/1 Mode
+    TMOD |= 0x00;         //Timer0/1 Mode
     //f = 11.0592Mhz
     //Formula : 65536 - 11.0592M / 12 /1000
     TL0 = 0xCE;
     TH0 = 0xFF;
 
-    TR0 = 1;            //Timer0 Enable
-    ET0 = 1;            //Enable Timer0 Interrupt
+    TR0 = 1;              //Timer0 Enable
+    ET0 = 1;              //Enable Timer0 Interrupt
 }
 
 ///@Function: TMR1_Init
@@ -142,7 +142,7 @@ void TMR1_Init(void)
     TMOD |= 0x00;        //Timer0/1 Mode
     //f = 11.0592Mhz
     //Formula : 65536 - 11.0592M / 12 /1000
-    TL1 = 0xCE;            //1:500ns        CC:36K
+    TL1 = 0xCE;          //1:500ns        CC:36K
     TH1 = 0xFF;
 
     TR1 = 1;            //Timer1 Enable
