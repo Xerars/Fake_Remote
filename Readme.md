@@ -1,7 +1,5 @@
 # Fake Remote
 
----
-
 Fake Remote is a Lightweight GPIO to Simulate IR Remote Library Written in C Language.
 
 All Libraries of Fake Series are Simulated by GPIO. Similar Libraries with Prefix will be Released in the Future
